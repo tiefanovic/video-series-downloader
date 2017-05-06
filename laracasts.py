@@ -6,7 +6,7 @@ from general import *
 def main():
 
 	### Checking correct usage
-	if len(sys.argv)!=3:
+	if len(sys.argv)!=4:
 
 		print("Usage:\n")
 		print("Give command as:\n\tpython laracasts.py <starting page no.> <ending page no.>\n")
@@ -16,11 +16,12 @@ def main():
 
 		first = int(sys.argv[1])
 		last = int(sys.argv[2])
+		link = int(sys.argv[3]) # Playlist link 
 
 		### Looping through the range specified by command
 		for i in range(first,last+1):
 
-			url = "https://laracasts.com/series/laravel-5-fundamentals/episodes/"+str(i)
+			url = link + "/episodes/" + str(i)
 
 			htmlSource = getHTML(url)					# Function from general.py
 			video_url = getVideoURL(htmlSource)
